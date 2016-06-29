@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id].to_i < 150
+    if (1..User.all.count).include?(params[:id].to_i)
       render User.all.select { |user|  user.id == params[:id].to_i  }.to_json
     else
-      render "ID out of range - not found" , status: "404 NOT FOUND"
+      render({msg: "ID out of range - not found"}.to_json, status: "404 NOT FOUND")
     end
   end
 end
