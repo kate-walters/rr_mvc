@@ -18,7 +18,8 @@ class Router
     [
       get('/users/:id', UsersController, :show),
       get('/users', UsersController, :index),
-
+      get('/users?first_name=s', UsersController, :index),
+      get('/users?limit=10&offset=10', UsersController, :index),
       get('/tweets', TweetsController, :index)
     ].find(&:itself)
   end
