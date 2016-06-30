@@ -4,6 +4,14 @@ require 'pry'
 require_relative '../config/router'
 require_relative '../lib/all'
 
+20.times do
+  Post.new(Faker::Hipster.word, Faker::Name.name, Faker::Lorem.paragraph, [true, false].sample)
+end
+
+Post.all.each do |post|
+  Comment.new(post.id, Faker::Name.name, Faker::Lorem.sentence)
+end
+
 system('clear')
 
 # Initialize a TCPServer object that will listen

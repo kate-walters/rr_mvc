@@ -24,16 +24,7 @@ class User
   def User.all
     @@all
   end
-
-  def User.each
-    
-  end
-
-  def to_s
-    "#{first_name} #{last_name}, #{id}, #{age}"
-  end
 end
-
 
 100.times do |n|
   User.new(Faker::Name.first_name, Faker::Name.last_name, n, rand(1..150))

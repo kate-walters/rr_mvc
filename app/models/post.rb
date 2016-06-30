@@ -1,9 +1,12 @@
+require 'faker'
 class Post
   @@all = []
-  attr_accessor :id, :title, :author, :body, :published
+  attr_reader :id
+  attr_accessor :title, :author, :body, :published
 
-  def intialize (id, title, author, body, published)
-    @id = id
+  def initialize(title, author, body, published)
+    @@all << self
+    @id = set_id
     @title = title
     @author = author
     @body = body
@@ -22,5 +25,12 @@ class Post
 
   def Post.all
     @@all
+  end
+
+  private
+
+  def set_id
+    $post_id ||= 0
+    $post_id += 1
   end
 end

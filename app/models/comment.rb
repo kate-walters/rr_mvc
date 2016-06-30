@@ -1,10 +1,11 @@
 require 'faker'
 class Comment
   @@all = []
-  attr_reader :id
-  attr_accessor :message, :author, :post_id
+  attr_reader :id, :post_id
+  attr_accessor :message, :author
 
   def initialize(message, author, post_id)
+    @@all << self
     @id = set_id
     @message = message
     @author = author
@@ -25,9 +26,9 @@ class Comment
   end
 
   private
-  
+
   def set_id
-    $user_id ||= 0
-    $user_id += 1
+    $comment_id ||= 0
+    $comment_id += 1
   end
 end
