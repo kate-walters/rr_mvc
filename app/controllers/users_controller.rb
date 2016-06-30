@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   end
 end
 
-def delete
-  
-end
+#def delete
+#  if [:method] == "DELETE"
+#    render User.all.delete { |user|  user.id == params[:id].to_i  }.to_json
+#  end
+#end
